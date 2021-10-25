@@ -1,0 +1,285 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap");
+:root {
+    --dark-color: #000;
+    --light-color: #fff;
+    --red-600: #bf1414;
+    --blue-600: #162dab;
+    --blue-800: #183370;
+    --gray-800: gray;
+    --gray-200: #bbb9b938;
+    --green-400: rgb(99, 189, 99);
+    --green-700: rgb(5 114 5 / 93%);
+}
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+html {
+    font-size: 10px;
+}
+body {
+    font-family: "Cormorant Garamond", serif;
+    background: linear-gradient(359deg, var(--dark-color) 0%, var(--blue-600) 80%) fixed;
+}
+h1 {
+    font-size: 2.2rem;
+}
+h3 {
+    font-size: 2rem;
+}
+p,
+a {
+    font-size: 1.6rem;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+ul {
+    list-style-type: none;
+}
+input::placeholder {
+    color: var(--light-color);
+}
+input {
+    padding: 0.8rem 1rem;
+    caret-color: var(--light-color);
+}
+select {
+    padding: 0.8rem;
+}
+input,
+select {
+    width: 50%;
+    border: none;
+    outline: none;
+    border-radius: 0.2rem;
+    font-size: 1.4rem;
+    background: var(--blue-800);
+    color: var(--light-color);
+}
+#app {
+    max-width: 80rem;
+    margin: 2rem auto;
+    padding: 2rem 4rem;
+    border-radius: 0.4rem;
+    background-color: var(--light-color);
+}
+.btn {
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 0.4rem;
+    padding: 0.6rem 0.8rem;
+    transition: all 0.3s;
+    color: var(--light-color);
+}
+.btn[disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+.btn--save {
+    margin-left: 2rem;
+    background-color: var(--blue-600);
+}
+.btn--update {
+    background-color: var(--green-700);
+}
+.btn--team {
+    margin: 0 1.6rem;
+}
+.btn--edit {
+    margin-left: 2rem;
+    background-color: var(--green-700);
+}
+.btn--delete {
+    background-color: var(--red-600);
+    margin-left: 1.2rem;
+}
+
+/*App Header*/
+.app-header {
+    padding-bottom: 2rem;
+}
+.app-header header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.app-header__title .title__link {
+    font-size: 2.6rem;
+    color: var(--green-400);
+}
+.app-header__buttons .btn {
+    background-color: var(--dark-color);
+}
+.app-header__buttons .btn:hover {
+    opacity: 0.9;
+}
+
+/* Person */
+.person {
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    border-radius: 0.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.4s;
+    cursor: pointer;
+    color: var(--light-color);
+    background: var(--blue-800);
+}
+.person header {
+    width: 21rem;
+}
+.person:hover {
+    box-shadow: 0.1rem 0.1rem 0.4rem var(--dark-color);
+}
+.person .btn {
+    background: var(--light-color);
+    color: var(--dark-color);
+}
+
+/*Person Form*/
+.person-form {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.person-form div {
+    width: 50%;
+    padding: 0 0.2rem;
+    margin-top: 2rem;
+}
+.person-form input,
+.person-form select {
+    width: 100%;
+}
+.person-form__input {
+    position: relative;
+}
+.person-form__input span {
+    position: absolute;
+    top: 0.1rem;
+    left: 0.4rem;
+    color: var(--light-color);
+    padding: 0.5rem;
+    font-size: 1.6rem;
+    transition: 0.5s;
+    pointer-events: none;
+}
+
+.person-form input:focus ~ span,
+.person-form input:valid ~ span {
+    transform: translateX(-0.5rem) translateY(-3rem);
+    color: var(--dark-color);
+}
+.person-form__buttons {
+    margin-top: 2rem;
+    margin-left: auto;
+}
+.person-form__buttons .btn--cancel {
+    margin-left: 1rem;
+    background-color: var(--gray-800);
+}
+
+/*Levels Teams Form and List*/
+.level-form,
+.team-form {
+    margin-bottom: 2rem;
+    display: flex;
+}
+.team-list,
+.level-list {
+    display: flex;
+    position: relative;
+    width: 50%;
+    margin-bottom: 1rem;
+    padding: 0.6rem;
+    border-radius: 0.2rem;
+    border: 1px solid var(--gray-200);
+}
+.team-list h3,
+.level-list h3 {
+    cursor: pointer;
+}
+.level-list .btn,
+.team-list .btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    display: none;
+}
+.level-list:hover,
+.team-list:hover {
+    box-shadow: 0 0.1rem 0.2rem var(--gray-800);
+}
+.level-list:hover .btn,
+.team-list:hover .btn {
+    display: block;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .app-header header {
+        flex-direction: column;
+    }
+    .app-header h1 {
+        font-size: 2rem;
+        text-align: center;
+    }
+    .app-header__buttons {
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .person {
+        padding: 0.6rem;
+    }
+    .person header {
+        width: auto;
+    }
+    .person h1 {
+        font-size: 1.8rem;
+    }
+    .person h3 {
+        font-size: 1.6rem;
+    }
+    .person footer {
+        display: flex;
+        flex-direction: column;
+    }
+    .person footer button {
+        margin-left: 0;
+    }
+    .person footer .btn--edit {
+        margin-bottom: 0.4rem;
+    }
+
+    .person-form {
+        display: block;
+    }
+    .person-form div {
+        width: 100%;
+    }
+    .person-form__buttons {
+        display: flex;
+        justify-content: end;
+        margin-left: 0;
+    }
+    .person-form input:focus ~ span,
+    .person-form input:valid ~ span {
+        transform: translateX(-0.5rem) translateY(-2.6rem);
+    }
+    .level-form input,
+    .team-form input {
+        width: 100%;
+    }
+    .team-list,
+    .level-list {
+        width: 100%;
+    }
+}

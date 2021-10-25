@@ -1,4 +1,6 @@
-# team-builder
+# Team Builder Vuex With Composition Api
+
+[Demo](https://vuex-with-composition-api.vercel.app/)
 
 ## Project setup
 ```
